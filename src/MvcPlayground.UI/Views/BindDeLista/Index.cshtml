@@ -1,0 +1,196 @@
+﻿@model Pessoa
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Bind de Lista";
+}
+
+<form type="post" asp-action="Salvar">
+
+    <div class="form-row">
+        <div class="form-group col-4">
+            <label asp-for="Nome" class="control-label"></label>
+            <input asp-for="Nome" class="form-control" placeholder="João" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-4">
+            <label asp-for="Sobrenome" class="control-label"></label>
+            <input asp-for="Sobrenome" class="form-control" placeholder="da Silva" />
+            <span asp-validation-for="Sobrenome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-4">
+            <label asp-for="Idade" class="control-label"></label>
+            <input asp-for="Idade" class="form-control" placeholder="23" />
+            <span asp-validation-for="Idade" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div id="div-title-endereco">
+        <b>Endereços</b>
+    </div>
+    <hr class="m-1" />
+
+    <div id="enderecos">
+        <div class="observacao">
+            <div class="observacao-titulo">
+                FOREACH
+            </div>
+            <p>
+                Ao realizar o loop de Endereços por meio do laço foreach, o name e id de cada input é gerado de uma maneira
+                que <b>impossibilita o bind dos elementos</b>:
+            </p>
+            <div class="observacao-code">
+                id="endereco_Cep" <br />
+                name="endereco.Cep"
+            </div>
+        </div>
+        <div id="foreach">
+
+            @foreach (var endereco in Model.Enderecos)
+            {
+                <div class="endereco">
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label asp-for="@endereco.Cep" class="control-label"></label>
+                            <input asp-for="@endereco.Cep" class="form-control" placeholder="123456" />
+                            <span asp-validation-for="@endereco.Cep" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label asp-for="@endereco.Logradouro" class="control-label"></label>
+                            <input asp-for="@endereco.Logradouro" class="form-control" placeholder="Av. A, Quadra X Lote Y Ap Z" />
+                            <span asp-validation-for="@endereco.Logradouro" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label asp-for="@endereco.Complemento" class="control-label"></label>
+                            <input asp-for="@endereco.Complemento" class="form-control" placeholder="Ao lado de X" />
+                            <span asp-validation-for="@endereco.Complemento" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label asp-for="@endereco.Bairro" class="control-label"></label>
+                            <input asp-for="@endereco.Bairro" class="form-control" placeholder="Centro" />
+                            <span asp-validation-for="@endereco.Bairro" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label asp-for="@endereco.Cidade" class="control-label"></label>
+                            <input asp-for="@endereco.Cidade" class="form-control" placeholder="Goiânia" />
+                            <span asp-validation-for="@endereco.Cidade" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label asp-for="@endereco.Estado" class="control-label"></label>
+                            <input asp-for="@endereco.Estado" class="form-control" placeholder="GO" />
+                            <span asp-validation-for="@endereco.Estado" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            }
+
+        </div>
+
+        <div class="observacao">
+            <div class="observacao-titulo">
+                FOR
+            </div>
+            <p>
+                Ao realizar o loop de Endereços por meio do laço for, o id e o name de cada input é gerado da maneira esperada:
+            </p>
+            <div class="observacao-code">
+                id="Enderecos_0__Cep" <br />
+                name="Enderecos[0].Cep"
+            </div>
+        </div>
+
+        <div id="for">
+
+            @for (int i = 0; i < Model.Enderecos.Count; i++)
+            {
+                <div class="endereco">
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label asp-for="@Model.Enderecos[i].Cep" class="control-label"></label>
+                            <input asp-for="@Model.Enderecos[i].Cep" class="form-control" placeholder="123456" />
+                            <span asp-validation-for="@Model.Enderecos[i].Cep" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label asp-for="@Model.Enderecos[i].Logradouro" class="control-label"></label>
+                            <input asp-for="@Model.Enderecos[i].Logradouro" class="form-control" placeholder="Av. A, Quadra X Lote Y Ap Z" />
+                            <span asp-validation-for="@Model.Enderecos[i].Logradouro" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label asp-for="@Model.Enderecos[i].Complemento" class="control-label"></label>
+                            <input asp-for="@Model.Enderecos[i].Complemento" class="form-control" placeholder="Ao lado de X" />
+                            <span asp-validation-for="@Model.Enderecos[i].Complemento" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label asp-for="@Model.Enderecos[i].Bairro" class="control-label"></label>
+                            <input asp-for="@Model.Enderecos[i].Bairro" class="form-control" placeholder="Centro" />
+                            <span asp-validation-for="@Model.Enderecos[i].Bairro" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label asp-for="@Model.Enderecos[i].Cidade" class="control-label"></label>
+                            <input asp-for="@Model.Enderecos[i].Cidade" class="form-control" placeholder="Goiânia" />
+                            <span asp-validation-for="@Model.Enderecos[i].Cidade" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label asp-for="@Model.Enderecos[i].Estado" class="control-label"></label>
+                            <input asp-for="@Model.Enderecos[i].Estado" class="form-control" placeholder="GO" />
+                            <span asp-validation-for="@Model.Enderecos[i].Estado" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            }
+
+        </div>
+
+        <div class="observacao">
+            <div class="observacao-titulo">
+                Dinamicamente (jQuery)
+            </div>
+            <p>
+                Para inserir via jQuery, devemos criar o html inserido da mesma maneira em que é gerado no laço <b>for</b>, atualizando o index de cada elemento inserido.
+            </p>
+            <p>
+                Caso esteja trabalhando com validação unobtrusiva será necessário "rebindar" os validadores do form.
+            </p>
+        </div>
+
+        <div id="dinamicamente">
+            <a id="add-endereco" class="btn btn-primary text-white" style="cursor: pointer;">
+                Inserir dinamicamente
+                <i class="fas fa-plus ml-2"></i>
+            </a>
+        
+            <hr />
+
+        </div>
+        
+    </div>
+
+    <div class="form-row">
+        <button id="btn-salvar" class="btn btn-danger" type="submit">Salvar</button>
+    </div>
+</form>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script src="~/js/insercao.js"></script>
+}
