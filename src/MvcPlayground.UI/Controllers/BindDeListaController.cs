@@ -4,8 +4,10 @@ using MvcPlayground.UI.Models;
 
 namespace MvcPlayground.UI.Controllers
 {
+    [Route("bind-de-lista")]
     public class BindDeListaController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View(new Pessoa
@@ -28,7 +30,7 @@ namespace MvcPlayground.UI.Controllers
             });
         }
 
-
+        [HttpPost]
         public IActionResult Salvar(Pessoa model)
         {
             if (!ModelState.IsValid) return View(nameof(Index), model);
