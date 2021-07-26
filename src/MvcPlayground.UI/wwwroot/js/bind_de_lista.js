@@ -1,6 +1,12 @@
 ﻿$(function () {
     $("#add-endereco").on('click', adicionarEndereco);
+    $("body").on('click', ' .btn-excluir-endereco', deletarEndereco);
 });
+
+function deletarEndereco() {
+    debugger;
+    $(this).parents('.endereco').remove();
+}
 
 function adicionarEndereco() {
 
@@ -19,9 +25,12 @@ function obterIndexDoNovoEndereco() {
 
 function obtemHtmlDeNovoEndereco(index) {
     return '<div class="endereco">' + 
+        '<div class="div-btn-excluir"><a class="btn btn-danger btn-excluir-endereco text-white" style="cursor: pointer;">'+
+            'Excluir</a></div>'+
                    '<div class="form-row">'+
+                        '<input type="hidden" name="Enderecos.Index" value="' + index + '" />' +
                         '<div class="form-group col-4">'+
-                           '<label class="control-label" for="Enderecos_' + index +'__Cep">Cep</label>' +
+                            '<label class="control-label" for="Enderecos_' + index +'__Cep">Cep</label>' +
                             '<input class="form-control valid" placeholder="123456" type="text" data-val="true" data-val-required="Obrigatório" id="Enderecos_' + index +'__Cep" name="Enderecos[' + index +'].Cep" aria-describedby="Enderecos_' + index +'__Cep-error" aria-invalid="false">' +
                             '<span class="text-danger field-validation-valid" data-valmsg-for="Enderecos[' + index +'].Cep" data-valmsg-replace="true"></span>' +
                         '</div>' +
