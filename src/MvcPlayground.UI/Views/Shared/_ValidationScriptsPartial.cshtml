@@ -1,2 +1,71 @@
 ﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+<script>
+    $.validator.methods.range = function (value, element, param) {
+        var globalizedValue = value.replaceAll(".", "").replace(",", ".");
+        return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+    };
+
+    $.validator.methods.number = function (value, element) {
+        return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d+)?$/.test(value);
+    };
+
+    $.validator.methods.date = function (value, element) {
+        var date = value.split("-");
+        return this.optional(element) || !/Invalid|NaN/.test(new Date(date[2], date[1], date[0]).toString());
+    };
+
+    $.validator.addMethod('cpf', function (value, element, params) {
+        var strCPF = value.toString();
+        var obrigatorio = params[0] === 'True';
+        
+        if (!obrigatorio && !strCPF) return true;
+
+        var soma;
+        var resto;
+        soma = 0;
+        if (strCPF == "00000000000") return false;
+
+        for (i = 1; i <= 9; i++) soma = soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
+        resto = (soma * 10) % 11;
+
+        if ((resto == 10) || (resto == 11)) resto = 0;
+        if (resto != parseInt(strCPF.substring(9, 10))) return false;
+
+        soma = 0;
+        for (i = 1; i <= 10; i++) soma = soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
+        resto = (soma * 10) % 11;
+
+        if ((resto == 10) || (resto == 11)) resto = 0;
+        if (resto != parseInt(strCPF.substring(10, 11))) return false;
+        return true;
+    });
+    
+    $.validator.unobtrusive.adapters.add('cpf', ['obrigatorio'], function (options) {
+        options.rules['cpf'] = [options.params['obrigatorio']];
+        options.messages['cpf'] = options.message;
+    });
+
+    jQuery.extend(jQuery.validator.messages, {
+        required: "Campo obrigatório!",
+        remote: "Por favor, corrija este campo.",
+        email: "Por favor, forneça um endereço eletrônico válido.",
+        url: "Por favor, forneça uma URL válida.",
+        date: "Por favor, forneça uma data válida.",
+        dateISO: "Por favor, forneça uma data válida (ISO).",
+        number: "Por favor, forneça um número válido.",
+        digits: "Por favor, forneça somente dígitos.",
+        creditcard: "Por favor, forneça um cartão de crédito válido.",
+        equalTo: "Por favor, forneça o mesmo valor novamente.",
+        accept: "Por favor, forneça um valor com uma extensão válida.",
+        maxlength: jQuery.validator.format("Por favor, forneça não mais que {0} caracteres."),
+        minlength: jQuery.validator.format("Por favor, forneça ao menos {0} caracteres."),
+        rangelength: jQuery.validator.format("Por favor, forneça um valor entre {0} e {1} caracteres de comprimento."),
+        range: jQuery.validator.format("Por favor, forneça um valor entre {0} e {1}."),
+        max: jQuery.validator.format("Por favor, forneça um valor menor ou igual a {0}."),
+        min: jQuery.validator.format("Por favor, forneça um valor maior ou igual a {0}.")
+    });
+</script>
