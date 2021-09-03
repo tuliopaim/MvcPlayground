@@ -4,7 +4,6 @@
 });
 
 function deletarEndereco() {
-    debugger;
     $(this).parents('.endereco').remove();
 }
 
