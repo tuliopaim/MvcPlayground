@@ -1,6 +1,6 @@
-﻿using MvcPlayground.Core.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using MvcPlayground.UI.Extensions;
 
 namespace MvcPlayground.UI.Models
 {

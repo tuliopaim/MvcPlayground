@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using MvcPlayground.Core.ValueObjects;
+using MvcPlayground.Business.ValueObjects;
 
-namespace MvcPlayground.Core.Extensions
+namespace MvcPlayground.UI.Extensions
 {
     public class CpfAttribute : ValidationAttribute
     {
