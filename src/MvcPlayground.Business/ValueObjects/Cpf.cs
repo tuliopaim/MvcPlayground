@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using MvcPlayground.Core.Extensions;
 
-namespace MvcPlayground.Core.ValueObjects
+namespace MvcPlayground.Business.ValueObjects
 {
-    public class Cpf
+    public readonly struct Cpf
     {
         private readonly string _cpf;
 
@@ -14,7 +14,7 @@ namespace MvcPlayground.Core.ValueObjects
             _cpf = StringExtensions.ApenasNumeros(cpf);
         }
 
-        public static implicit operator Cpf(string value) => new Cpf(value);
+        public static implicit operator Cpf(string value) => new (value);
 
         public override string ToString() => _cpf;
 
