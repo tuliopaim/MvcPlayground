@@ -1,11 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MvcPlayground.Business\MvcPlayground.Business.csproj" />
     <ProjectReference Include="..\MvcPlayground.Core\MvcPlayground.Core.csproj" />
   </ItemGroup>
 

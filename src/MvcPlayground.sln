@@ -3,7 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcPlayground.UI", "MvcPlayground.UI\MvcPlayground.UI.csproj", "{F00D2881-BEAD-46BB-9AA0-4377CF715C7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcPlayground.UI", "MvcPlayground.UI\MvcPlayground.UI.csproj", "{F00D2881-BEAD-46BB-9AA0-4377CF715C7D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcPlayground.Core", "MvcPlayground.Core\MvcPlayground.Core.csproj", "{796E99FB-2E76-45B4-AA64-D0D2CF396D1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcPlayground.Business", "MvcPlayground.Business\MvcPlayground.Business.csproj", "{85DB3451-CA92-40C7-AE4A-A1A310442492}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcPlayground.Tests", "MvcPlayground.Tests\MvcPlayground.Tests.csproj", "{6E505068-C1D5-45CB-B406-CB18B76470D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Tests", "3 - Tests", "{8DEA08E9-8D09-40FA-8053-4A261351C63A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Core", "0 - Core", "{7BEEDC54-A46C-407B-968A-56BA8CCBE7B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Business", "2 - Business", "{2B417CD7-A320-4964-B8D2-22A74812848B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - UI", "1 - UI", "{5C64DBFE-404F-4182-B543-8881507220FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +29,27 @@ Global
 		{F00D2881-BEAD-46BB-9AA0-4377CF715C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F00D2881-BEAD-46BB-9AA0-4377CF715C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F00D2881-BEAD-46BB-9AA0-4377CF715C7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{796E99FB-2E76-45B4-AA64-D0D2CF396D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796E99FB-2E76-45B4-AA64-D0D2CF396D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796E99FB-2E76-45B4-AA64-D0D2CF396D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796E99FB-2E76-45B4-AA64-D0D2CF396D1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85DB3451-CA92-40C7-AE4A-A1A310442492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85DB3451-CA92-40C7-AE4A-A1A310442492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85DB3451-CA92-40C7-AE4A-A1A310442492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85DB3451-CA92-40C7-AE4A-A1A310442492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E505068-C1D5-45CB-B406-CB18B76470D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E505068-C1D5-45CB-B406-CB18B76470D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E505068-C1D5-45CB-B406-CB18B76470D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E505068-C1D5-45CB-B406-CB18B76470D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F00D2881-BEAD-46BB-9AA0-4377CF715C7D} = {5C64DBFE-404F-4182-B543-8881507220FE}
+		{796E99FB-2E76-45B4-AA64-D0D2CF396D1F} = {7BEEDC54-A46C-407B-968A-56BA8CCBE7B3}
+		{85DB3451-CA92-40C7-AE4A-A1A310442492} = {2B417CD7-A320-4964-B8D2-22A74812848B}
+		{6E505068-C1D5-45CB-B406-CB18B76470D1} = {8DEA08E9-8D09-40FA-8053-4A261351C63A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D4D9F3E-248E-4E8F-8F6E-8957A36A5D2A}
