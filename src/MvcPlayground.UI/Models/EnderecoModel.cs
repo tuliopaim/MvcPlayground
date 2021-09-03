@@ -2,7 +2,7 @@
 
 namespace MvcPlayground.UI.Models
 {
-    public class Endereco
+    public class EnderecoModel
     {
         [Required(ErrorMessage = "Obrigatório")]
         public string Cep { get; set; }

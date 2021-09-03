@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using MvcPlayground.Core.Extensions;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcPlayground.UI.Models
 {
-    public class Pessoa
+    public class PessoaModel
     {
+        [Cpf]
+        public string Cpf { get; set; }
+
         [Required(ErrorMessage = "Obrigatório")]
         public string Nome { get; set; }
 
@@ -15,6 +19,6 @@ namespace MvcPlayground.UI.Models
         [Range(18, 100)]
         public int Idade { get; set; }
 
-        public List<Endereco> Enderecos { get; set; } = new();
+        public List<EnderecoModel> Enderecos { get; set; } = new();
     }
 }

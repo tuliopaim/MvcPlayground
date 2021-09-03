@@ -10,12 +10,12 @@ namespace MvcPlayground.UI.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View(new Pessoa
+            return View(new PessoaModel
             {
                 Nome = "João",
                 Sobrenome = "da Silva",
                 Idade = 23,
-                Enderecos = new List<Endereco>
+                Enderecos = new List<EnderecoModel>
                 {
                     new ()
                     {
@@ -31,7 +31,7 @@ namespace MvcPlayground.UI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Salvar(Pessoa model)
+        public IActionResult Salvar(PessoaModel model)
         {
             if (!ModelState.IsValid) return View(nameof(Index), model);
 
